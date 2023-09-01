@@ -35,11 +35,10 @@
 	// 		data = d3.csvParse(await response.text(), d3.autoType);
 	// 	}
     // }
-	let index = 0
-	$: isPlaying, setInterval(function () {
+
+	setInterval(function () {
 		if (isPlaying && selectedT<steps[1]) {
-			index = ++index % 360+1;
-			selectedT = 145 + index;
+			selectedT++
 		}
 	}, 1000);	
 
