@@ -58,7 +58,7 @@
       <div class="text-white">loading...</div>
       {/if}
     </div>
-    <!-- <div class="">
+    <!-- <div class="w-1/4">
       {#if data.length>0}
         <Multiline {data} {selectedT} />
       {/if}
@@ -69,7 +69,7 @@
   
   <div class="mt-10 flex justify-center">
     <button class="rounded-full p-2" on:click={togglePlay}>{@html isPlaying ? "⏸️":"▶️"}</button>
-    <input disable={true} type="range" min={145} max={steps[1]} style="width: 400px" bind:value={selectedT} class="slider" id="myRange">
+    <input disabled type="range" min={145} max={steps[1]} style="width: 400px" bind:value={selectedT} class="slider" id="myRange">
     <span>{selectedT}</span>
   </div>
   <audio controls style="display: none" bind:this={audioEl}>
