@@ -15,6 +15,7 @@
 	import Cone from '$lib/Cone.svelte';
 	
 	export let selectedT;
+	export let isPlaying;
 	let data = [];
 	let years = []
 	let dMax
@@ -36,32 +37,32 @@
 		}
     }
 	
-	setInterval(function () {
-		if(selectedT<200) {
+	$: isPlaying, setInterval(function () {
+		if (isPlaying && selectedT<199) {
 			selectedT = selectedT % 360+1;
 		}
-	}, 100);	
+	}, 1000);	
 
     $: dataFiltered  = data.filter(d=> d.t == selectedT);
 
 	$: xScale = d3
           .scaleLinear()
           .domain(d3.extent(data.map((d) => d.x)))
-          .range([-50, 50]);
+          .range([-20, 20]);
   
 	$: yScale = d3
 		.scaleLinear()
 		.domain(d3.extent(data.map((d) => d.growT)))
-		.range([0, 30]);
+		.range([0, 20]);
 
 	$: zScale = d3
 		.scaleLinear()
 		.domain(d3.extent(data.map((d) => d.y)))
-		.range([-50,50]);
+		.range([-20,20]);
 
 	$: rScale = d3.scaleLinear()
 				.domain(d3.extent(data.map(d=>d.r)))
-				.range([0,20]);
+				.range([0,10]);
 
 	onMount(() => {
 		load();
