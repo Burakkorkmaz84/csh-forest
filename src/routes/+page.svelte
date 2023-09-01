@@ -38,8 +38,15 @@
     }
 </script>
   <div class="m-10">
-  <h1 class=" font-bold" style="font-size: 32px">Rhythm of the forest</h1>
-  <p>Rhythm of the forest is an data visualization endowed with sonification based on the paper <strong>“Growth, death, and resource competition in sessile organisms” </strong>by Lee et al. to explore the dance of life, death, and competition among stationary creatures in nature.”
+  <h1 class="font-bold" style="font-size:48px">Rhythm of the forest</h1>
+  <p class="italic text-sm"> by Aya Tanikawa,
+    Burak Korkmaz,
+    Mengying Du,
+    Robert Jankowski,
+    Viktoria Dergunova,
+    Ziwei Wu
+    </p>
+  <p class="text-lg">Rhythm of the forest is an data visualization endowed with sonification based on the paper <strong>“Growth, death, and resource competition in sessile organisms” </strong>by Lee et al. to explore the dance of life, death, and competition among stationary creatures in nature.”
   </p>
   <div class="flex mt-8">
     <div class="w-full" style="background-color:#172734;height: 600px;">
@@ -68,11 +75,11 @@
   <audio controls style="display: none" bind:this={audioEl}>
     <source src="audio.mp3" type="audio/mpeg">
   </audio>  
-  <div>
-    <p>
+  <div class="mx-auto">
+    <p class="text-center">
       The sonification consists of three layers corresponding to three parameters from the simulation: 
     </p>
-    <ul>
+    <!-- <ul>
       <li>
         - Average radius of the 10 biggest trees
       </li>
@@ -82,21 +89,23 @@
       <li>
         - Sum of radii of all trees (to represent the fullness of the forest) 
       </li>
-    </ul>
+    </ul> -->
   </div>
   
-  <div class="flex flex-col">
+  <div class="flex flex-col mx-auto">
     {#if lineData.length>0}
-    <div class="felx justify-center">
-      <Line data={lineData} {selectedT} options={{x: "t", y: "ravg_top"}} />
-      
-    </div>
-    <div class="felx justify-center">
-      <Line data={lineData} {selectedT} options={{x: "t", y: "ravg"}} />
-    </div>
-    <div class="felx justify-center">
-      <Line data={lineData} {selectedT} options={{x: "t", y: "rsum"}} />
-    </div>
+      <div class="text-center">
+        <strong>Average radius of the 10 biggest trees</strong>
+        <Line data={lineData} {selectedT} title="Average radius of the 10 biggest trees" options={{x: "t", y: "ravg_top"}} />
+      </div>
+      <div class="text-center">
+        <strong>Average radius of all trees</strong>
+        <Line data={lineData} {selectedT} title="Average radius of all trees" options={{x: "t", y: "ravg"}} />
+      </div>
+      <div class="text-center">
+        <strong>Sum of radii of all trees (to represent the fullness of the forest)</strong>
+        <Line data={lineData} {selectedT} title="Sum of radii of all trees (to represent the fullness of the forest) " options={{x: "t", y: "rsum"}} />
+      </div>
     {/if}
   </div>
 </div>

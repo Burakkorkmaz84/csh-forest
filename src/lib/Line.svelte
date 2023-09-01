@@ -30,5 +30,5 @@
 </script>
 <!-- <div use:lines></div> -->
 {#key selectedT}  
-    <div use:lines></div>
+    <div class="flex justify-center" use:lines></div>
 {/key}
