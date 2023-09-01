@@ -88,14 +88,14 @@
   <div class="flex flex-col">
     {#if lineData.length>0}
     <div class="felx justify-center">
-      <Line data={lineData} options={{x: "t", y: "ravg_top"}} />
+      <Line data={lineData} {selectedT} options={{x: "t", y: "ravg_top"}} />
       
     </div>
     <div class="felx justify-center">
-      <Line data={lineData} options={{x: "t", y: "ravg"}} />
+      <Line data={lineData} {selectedT} options={{x: "t", y: "ravg"}} />
     </div>
     <div class="felx justify-center">
-      <Line data={lineData} options={{x: "t", y: "rsum"}} />
+      <Line data={lineData} {selectedT} options={{x: "t", y: "rsum"}} />
     </div>
     {/if}
   </div>
