@@ -28,6 +28,5 @@
     far={10000}
     />
     <T.Vector2 attach="shadow.mapSize" args={[4196, 4196]} />
-
 </T.DirectionalLight>
 

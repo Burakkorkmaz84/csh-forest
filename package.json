@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@observablehq/plot": "^0.6.10",
 		"@threlte/core": "^6.0.0-next.1",
 		"@threlte/extras": "^5.0.0-next.4",
 		"d3": "^7.8.4",
